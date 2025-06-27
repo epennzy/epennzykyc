@@ -1,0 +1,73 @@
+
+body { font-family: sans-serif; }
+.input { width: 100%; padding: 10px; border-radius: 6px; background-color: #1f2937; color: white; border: 1px solid #4b5563; }
+.job-card { padding: 16px; border-radius: 12px; background: #1f2937; border: 1px solid #374151; }
+.job-card h2 { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
+.verified { background: #10b981; color: white; padding: 2px 6px; border-radius: 6px; font-size: 0.75rem; }
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; }
+.modal-content { background: white; color: black; padding: 20px; border-radius: 8px; max-width: 400px; width: 90%; position: relative; }
+.close { position: absolute; right: 10px; top: 10px; cursor: pointer; }
+
+
+/* === Gen Z Professional Enhancements === */
+
+/* Font and base styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Smooth fade-in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Button hover effect */
+button, .btn {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    padding: 0.7em 1.5em;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphism card */
+.card-glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Navbar sticky and modern */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Responsive text */
+h1, h2, h3 {
+    color: #222;
+    font-weight: 600;
+}

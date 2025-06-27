@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta name="description" content="Epennzy KYC job finder — temukan pekerjaan KYC dari berbagai kategori.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epennzy KYC Job</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+
+<header class="py-4 px-4 border-b dark:border-gray-700 flex justify-between items-center">
+  <div class="flex items-center gap-3">
+    <h1 class="text-xl font-bold">Epennzy KYC</h1>
+    <button onclick="toggleTheme()" aria-label="Toggle dark mode">🌓</button>
+  </div>
+  <button onclick="document.getElementById('loginModal').style.display='flex'" aria-label="Login">Login</button>
+
+  <h1 class="text-xl font-bold">Epennzy KYC</h1>
+  <button onclick="toggleTheme()">🌓</button>
+</header>
+
+<section class="max-w-2xl mx-auto px-4 mt-6 space-y-3">
+  
+<label for="searchInput" class="sr-only">Cari pekerjaan</label>
+<input id="searchInput" oninput="filterJobs()" type="text" placeholder="Cari job KYC..." class="input" aria-label="Cari pekerjaan KYC">
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+      e.preventDefault();
+      document.getElementById('searchInput').focus();
+    }
+  });
+</script>
+
+  
+<label for="categoryFilter" class="sr-only">Filter Kategori</label>
+<select id="categoryFilter" onchange="filterJobs()" class="input" aria-label="Filter kategori KYC">
+    <option value="all">Semua Kategori</option>
+    <option value="crypto">Crypto</option>
+    <option value="bank">Bank</option>
+    <option value="freelance">Freelance</option>
+    <option value="e-wallet">E-wallet</option>
+  </select>
+<div style="margin-top:1em;"><button onclick="openDetail()" class="btn">Lihat Detail</button></div>
+<div id="noResults" style="display:none; text-align:center; margin-top:1em; color:gray;">Tidak ada job yang ditemukan.</div>
+  <button onclick="sortByPay()" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm">Urutkan Bayaran</button>
+</section>
+
+<section id="jobList" class="max-w-2xl mx-auto px-4 py-6 space-y-4"></section>
+
+<footer class="text-center py-4 text-sm dark:text-gray-400">© 2025 Epennzy</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<a href="#" id="backToTop" title="Kembali ke atas"
+   class="fixed bottom-6 right-6 hidden p-3 bg-blue-600 text-white rounded-full shadow-lg">
+  ↑
+</a>
+
+<script src="script.js"></script>
+
+<!-- Theme Toggle Script -->
+<script>
+function toggleTheme() {
+  document.documentElement.classList.toggle("dark");
+  localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+}
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+});
+</script>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index:1000;">
+  <div style="background:white; padding:2em; border-radius:10px; max-width:300px; width:90%;">
+    <h2 style="margin-top:0;">Login</h2>
+    <input type="text" placeholder="Username" style="width:100%; padding:0.5em; margin-bottom:1em;" />
+    <input type="password" placeholder="Password" style="width:100%; padding:0.5em; margin-bottom:1em;" />
+    <button onclick="closeLogin()" style="width:100%; padding:0.7em; background:#6e8efb; color:white; border:none; border-radius:5px;">Login</button>
+  </div>
+</div>
+
+<!-- Detail Modal -->
+<div id="detailModal" class="modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1000;">
+  <div style="background:white; padding:2em; border-radius:10px; max-width:400px; width:90%; position:relative;">
+    <span onclick="closeDetail()" style="position:absolute; top:10px; right:15px; cursor:pointer;">❌</span>
+    <h2>Detail Job</h2>
+    <p>Ini adalah deskripsi lengkap untuk pekerjaan KYC terpilih. Tambahkan konten dinamis di sini.</p>
+  </div>
+</div>
+
+</body>
+</html>
